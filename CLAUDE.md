@@ -15,7 +15,7 @@ assets/img/       client photos (renamed and compressed) + logo.png (transparent
 
 The sections in `index.html` appear in the same order as their blocks in `main.js`:
 
-loader → hero → story (manifesto + stats + motto) → route (horizontal pin) → marquee → destinations → packages ("Trip Studio") → services (stacking cards) → advantage (bento grid) → film → FAQ → contact (quiz + boarding pass) → footer
+loader → hero → story (manifesto + stats + motto) → route (horizontal pin) → marquee → destinations → packages ("Trip Studio") → services (stacking cards) → advantage (bento grid) → vista (parallax photo band) → FAQ → contact (quiz + boarding pass) → footer
 
 ## Run & check
 
@@ -49,7 +49,7 @@ Loaded from CDN at the bottom of `index.html`: GSAP 3.12.5 + ScrollTrigger (cdnj
 ## Rules that aren't obvious from the code
 
 - **Degrade gracefully.** `animate = gsap && ScrollTrigger && !prefers-reduced-motion`. When it's false, `<html>` gets `.no-anim .no-pin`, the loader is removed, and all content must still be visible and usable. Don't add content that is hidden by default and only revealed by JS. `<noscript>` hides the loader and cursor.
-- **Lenis drives scrolling.** It's wired to `ScrollTrigger.update` and `gsap.ticker`. Use `scrollToTarget()` for programmatic scrolling. Call `lenis.stop()` / `lenis.start()` around overlays (menu, video modal). The menu has `data-lenis-prevent` so it can scroll on its own.
+- **Lenis drives scrolling.** It's wired to `ScrollTrigger.update` and `gsap.ticker`. Use `scrollToTarget()` for programmatic scrolling. Call `lenis.stop()` / `lenis.start()` around overlays (the menu). The menu has `data-lenis-prevent` so it can scroll on its own.
 - **Mouse parallax and magnetic buttons use the CSS `translate` property**, not `transform`. That way they compose with GSAP transforms on the same element instead of fighting them. Keep it that way.
 - **The Route section** is a pinned horizontal tween (`hTween`). Its elevation line is built in JS from each `.route__panel`'s `data-alt` / `data-name` and its `offsetLeft`, and rebuilt on ScrollTrigger refresh. The altitude readout reads the line's y position back into metres. To add or reorder stops, edit the panels in HTML; the line follows automatically. Parallax inside the route must use `containerAnimation: hTween`.
 - **Service card stacking** (sticky cards + scale/dim) only runs at `(min-width: 900px) and (min-height: 700px)`. That condition is duplicated in CSS (`position: sticky`) and in JS (`gsap.matchMedia`), so keep both in sync. Below it the cards scroll normally, because a sticky card taller than the viewport gets covered before it can be read.
@@ -67,7 +67,7 @@ Loaded from CDN at the bottom of `index.html`: GSAP 3.12.5 + ScrollTrigger (cdnj
   - Darjeeling and Dooars use the homepage's "from ₹3,599" price.
 - **Contact:** phone and WhatsApp `+91 831 893 2610` (`918318932610`), email `official.traveltochill@gmail.com`. The address is Rani Plaza, Tetulia Road, Maslandapur, North 24 Parganas 743289.
 - **Groups:** family and friends groups are 4+; corporate groups are 10+; Gangtok packages need a minimum of 5.
-- **Images:** keep them under ~500 KB each. Compress with `sips -s formatOptions 60`, and **never use `-Z` to a size larger than the source** (it upscales). `north-sikkim-snow` was dropped because it shows a Chinese temple. `hero-valley-hiker.jpg` looks like Yosemite, so it's only used as a mood image (film section, North Sikkim package), never to represent a real destination.
+- **Images:** keep them under ~500 KB each. Compress with `sips -s formatOptions 60`, and **never use `-Z` to a size larger than the source** (it upscales). `north-sikkim-snow` was dropped because it shows a Chinese temple. `hero-valley-hiker.jpg` looks like Yosemite, so it's only used as a mood image (vista band, North Sikkim package), never to represent a real destination.
 
 ## Style
 

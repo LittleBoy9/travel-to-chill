@@ -266,7 +266,7 @@
   $$('.menu__list a').forEach(a => a.addEventListener('mouseenter', () => {
     $$('.menu__media img').forEach(img => img.classList.toggle('is-active', img.dataset.key === a.dataset.key));
   }));
-  addEventListener('keydown', e => { if (e.key === 'Escape') { closeMenu(); closeModal(); } });
+  addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
   /* ---------- Scroll animations ---------- */
   if (animate) {
@@ -613,26 +613,11 @@
     requestAnimationFrame(step);
   }
 
-  /* ---------- Film ---------- */
+  /* ---------- Vista ---------- */
   if (animate) {
-    G.fromTo('.film__bg img', { yPercent: -12 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: '.film', start: 'top bottom', end: 'bottom top', scrub: true } });
-    G.from('.film__title', { y: 80, opacity: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: '.film', start: 'top 60%' } });
-    G.from('.film__play', { scale: 0.4, opacity: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: '.film', start: 'top 60%' } });
+    G.fromTo('.vista__bg img', { yPercent: -12 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: '.vista', start: 'top bottom', end: 'bottom top', scrub: true } });
+    G.from('.vista__title', { y: 80, opacity: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: '.vista', start: 'top 60%' } }); // eyebrow has its own reveal
   }
-  const modal = $('.modal'), frame = $('.modal__frame');
-  $$('.js-film').forEach(b => b.addEventListener('click', () => {
-    frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/VhBl3dHT5SY?autoplay=1&rel=0" title="Travel to Chill film" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
-    modal.hidden = false;
-    lenis?.stop();
-    $('.modal__close').focus();
-  }));
-  function closeModal() {
-    if (modal.hidden) return;
-    modal.hidden = true; frame.innerHTML = '';
-    lenis?.start();
-  }
-  $('.modal__close').addEventListener('click', closeModal);
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
   /* ---------- FAQ smooth accordion ---------- */
   if (animate) {

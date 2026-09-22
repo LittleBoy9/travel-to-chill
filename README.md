@@ -24,13 +24,13 @@ python3 -m http.server 8000   # then open http://localhost:8000
 | Trip Studio | Tabs, package list, day-by-day itinerary, a group-size stepper and a **live price calculator**. "Book on WhatsApp" pre-fills the message |
 | Services | Sticky stacking cards |
 | Advantage | A bento grid: the "Chill slider" stress meter, auto-toggling custom options, a meals sun-arc, ₹0 hidden fees and a driving car |
-| Film | A spinning text ring that opens their YouTube film in a modal |
+| Vista | A full-bleed parallax photo band: "Your job is done the moment you book." |
 | Quote | A conversational 5-step form that fills a **boarding pass** live, then sends to WhatsApp (or email) |
 | Extras | Custom cursor, magnetic buttons, Lenis smooth scroll, film grain, and a WhatsApp/call dock |
 
 Libraries (loaded from CDN): GSAP 3 + ScrollTrigger, Lenis. If any CDN script fails to load, the page still works without the animations. The site also respects `prefers-reduced-motion`.
 
 ## Content notes / to confirm with the client
-- All copy, prices, ratings, contact details, images and the YouTube film come from the current site.
+- All copy, prices, ratings, contact details, and images come from the current site.
 - The day-by-day plans for the **four Gangtok packages** were drafted for the demo; the current site lists only their names and prices. Please confirm these with the client.
 - Darjeeling and Dooars use the "from ₹3,599 / person" price shown on the current homepage. The packages page reuses a placeholder Gangtok price in those sections.
